@@ -1,0 +1,9 @@
+```bash
+#!/bin/bash
+
+ln -sf ".zshrc" ~/.zshrc
+ln -sfn ".zsh" ~/.zsh
+
+echo "Dotfiles linked."
+echo "Run 'source ~/.zshrc' or restart your terminal to apply changes."
+
