@@ -1,11 +1,6 @@
 # Aliases
 alias cb="xclip -selection clipboard"
 
-# Fix broken ctrl binds
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
-bindkey '^H' backward-kill-word
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -58,3 +53,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#A8FF60'
 ZSH_HIGHLIGHT_STYLES[path]+=',underline'
+
+# Fix broken ctrl binds
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^H' backward-kill-word
+
