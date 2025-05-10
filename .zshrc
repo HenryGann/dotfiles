@@ -1,6 +1,7 @@
 # Aliases
 alias cb="xclip -selection clipboard"
 
+export PATH="$HOME/.local/bin:$PATH"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -28,7 +29,6 @@ zstyle :prompt:pure:git:branch color '#A8FF60'            # bright green branch 
 zstyle :prompt:pure:git:dirty color '#FFF5A5'             # buttery yellow
 zstyle :prompt:pure:path color '#76E4F7'                  # bright cyan for directories
 zstyle :prompt:pure:host color '#FFD6A5'                  # peachy orange
-
 
 prompt pure
 
