@@ -23,9 +23,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(
 	git
+	sudo
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-history-substring-search
+	colorize
 )
 
 # Highlighting
@@ -40,9 +42,12 @@ ZSH_HIGHLIGHT_STYLES[command]='fg=#00FF00'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#00FF00'
 ZSH_HIGHLIGHT_STYLES[function]='fg=#00FF00'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#00FF00'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#00FFFF'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#00FFFF'
 
 # Make everything else white
 ZSH_HIGHLIGHT_STYLES[default]='fg=white'
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=white'
 
 
 
