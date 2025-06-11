@@ -35,13 +35,13 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 typeset -A ZSH_HIGHLIGHT_STYLES
 
 # Match 'sudo' and similar modifiers
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#00FF00,underline'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#80e82b,underline'
 
 # Match actual commands (including ones after sudo)
-ZSH_HIGHLIGHT_STYLES[command]='fg=#00FF00'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#00FF00'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#00FF00'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=#00FF00'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#80e82b'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#80e82b'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#80e82b'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#80e82b'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#00FFFF'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#00FFFF'
 
