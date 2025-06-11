@@ -1,5 +1,9 @@
-# Aliases
-alias cb="xclip -selection clipboard"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 export PATH="$HOME/.local/bin:$PATH"
 # Lines configured by zsh-newuser-install
@@ -10,52 +14,56 @@ setopt autocd
 unsetopt beep
 bindkey -v
 
-# Theme
-fpath+=($HOME/.zsh/pure)
-
-autoload -U promptinit; promptinit
-
-# Custom Settings
-PURE_CMD_MAX_EXEC_TIME=10
-PURE_GIT_PULL=0
-PURE_GIT_DELAY_DIRTY_CHECK=900
-
-# Custom Bright Pastel Colours for Pure (on dark background)
-
-zstyle :prompt:pure:prompt:success color '#E361AE'        # minty green (✓)
-zstyle :prompt:pure:prompt:error color '#FF6E7F'          # coral red (✗)
-zstyle :prompt:pure:prompt:continuation color '#89FCFF'   # icy cyan (>)
-zstyle :prompt:pure:git:branch color '#A8FF60'            # bright green branch name
-zstyle :prompt:pure:git:dirty color '#FFF5A5'             # buttery yellow
-zstyle :prompt:pure:path color '#76E4F7'                  # bright cyan for directories
-zstyle :prompt:pure:host color '#FFD6A5'                  # peachy orange
-
-prompt pure
-
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Extensions/Sources
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(
+	git
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	zsh-history-substring-search
+)
+
+# Highlighting
+typeset -A ZSH_HIGHLIGHT_STYLES
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+# Match 'sudo' and similar modifiers
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#00FF00,underline'
+
+# Match actual commands (including ones after sudo)
+ZSH_HIGHLIGHT_STYLES[command]='fg=#00FF00'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#00FF00'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#00FF00'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#00FF00'
+
+# Make everything else white
+ZSH_HIGHLIGHT_STYLES[default]='fg=white'
+
+
 
 # History suggestions
-source ~/.zsh/zsh-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Autosuggest
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888888"
-
-# Syntax hightlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=#A8FF60'
-ZSH_HIGHLIGHT_STYLES[path]+=',underline'
 
 # Fix broken ctrl binds
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 
+# eval "$(starship init zsh)"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
+
+# Aliases
+alias cb="xclip -selection clipboard"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
